@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SetInterval 시계</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    #clock-container {
+      border: 1px solid black;
+      padding: 20px;
+      text-align: center;
+      width: 250px;
+      margin: 0 auto;
+    }
+
+    #clock {
+      font-size: 24px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .instruction {
+      font-size: 14px;
+      color: gray;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>div 태그에 시계 만들기</h3>
+  <p class="instruction">시계를 클릭하면 시계가 멈추고 다시 클릭하면 가기 시작한다.</p>
+  <div id="clock-container">
+    <div id="clock">시계 로딩 중...</div>
+  </div>
+
+  <script>
+    let clockInterval;
+    let isRunning = false;
+
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      const ampm = hours >= 12 ? '오후' : '오전';
+      const displayHours = hours % 12 || 12;
+      document.getElementById('clock').innerText = `${ampm} ${displayHours}:${minutes}:${seconds}`;
+    }
+
+    function toggleClock() {
+      if (isRunning) {
+        clearInterval(clockInterval);
+        isRunning = false;
+      } else {
+        updateClock();
+        clockInterval = setInterval(updateClock, 1000);
+        isRunning = true;
+      }
+    }
+
+    document.getElementById('clock').addEventListener('click', toggleClock);
+    toggleClock();
+  </script>
+</body>
+
+</html>
