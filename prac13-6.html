@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>워커 테스크 곱셈</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input {
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h3>곱셈하기</h3>
+    <form>
+        <input type="number" id="num1" placeholder="첫 번째 숫자">
+        <input type="number" id="num2" placeholder="두 번째 숫자">
+        <input type="button" value="곱하기" onclick="startWorker()">
+    </form>
+    <div id="result">결과: </div>
+
+    <script>
+        let worker;
+
+        function startWorker() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('result').innerText = "결과: 유효한 숫자를 입력하세요.";
+                return;
+            }
+
+            if (worker) {
+                worker.terminate();
+            }
+
+            worker = new Worker('worker.js');
+            worker.postMessage({ num1, num2 });
+
+            worker.onmessage = function (e) {
+                document.getElementById('result').innerText = `결과: ${e.data}`;
+            };
+        }
+    </script>
+</body>
+</html>
