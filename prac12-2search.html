@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구입 리스트 검색</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            margin-right: 10px;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>세션 스토리지에서 구입 리스트 검색</h3>
+    <hr>
+    <label for="search-item">품명:</label>
+    <input type="text" id="search-item" placeholder="예: 테니스 라켓"><br>
+    <button onclick="searchItem()">검색</button>
+    <p id="result"></p>
+
+    <script>
+        function searchItem() {
+            const item = document.getElementById('search-item').value;
+            const quantity = sessionStorage.getItem(item);
+
+            if (quantity) {
+                document.getElementById('result').innerText = `${item}의 개수는 ${quantity}개입니다.`;
+            } else {
+                document.getElementById('result').innerText = `${item}은(는) 저장되지 않았습니다.`;
+            }
+        }
+    </script>
+</body>
+</html>

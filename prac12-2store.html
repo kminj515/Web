@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구입 리스트 저장</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            margin-right: 10px;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>세션 스토리지에 구입 리스트 저장</h3>
+    <hr>
+    <label for="item">품명:</label>
+    <input type="text" id="item" placeholder="예: 테니스 라켓"><br>
+    <label for="quantity">개수:</label>
+    <input type="number" id="quantity" placeholder="예: 5"><br>
+    <button onclick="storeItem()">저장</button>
+    <p id="message"></p>
+
+    <script>
+        function storeItem() {
+            const item = document.getElementById('item').value;
+            const quantity = document.getElementById('quantity').value;
+
+            if (item && quantity) {
+                sessionStorage.setItem(item, quantity);
+                document.getElementById('message').innerText = `${item} ${quantity}개가 저장되었습니다.`;
+            } else {
+                alert('품명과 개수를 입력하세요.');
+            }
+        }
+    </script>
+</body>
+</html>

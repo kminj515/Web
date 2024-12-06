@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일기 보기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .diary-entry {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .diary-date {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h3>일기 보기</h3>
+    <div id="diary-list"></div>
+
+    <script>
+        function loadDiaries() {
+            const diaryList = document.getElementById('diary-list');
+            diaryList.innerHTML = '';
+
+            for (let i = 0; i < localStorage.length; i++) {
+                const date = localStorage.key(i);
+                const content = localStorage.getItem(date);
+
+                const entryDiv = document.createElement('div');
+                entryDiv.classList.add('diary-entry');
+
+                const dateDiv = document.createElement('div');
+                dateDiv.classList.add('diary-date');
+                dateDiv.innerText = date;
+
+                const contentDiv = document.createElement('div');
+                contentDiv.innerText = content;
+
+                entryDiv.appendChild(dateDiv);
+                entryDiv.appendChild(contentDiv);
+                diaryList.appendChild(entryDiv);
+            }
+        }
+
+        loadDiaries();
+    </script>
+</body>
+</html>
