@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Programming</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        .navbar {
+            background-color: #d9f0ff;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: lightblue;
+            color: white;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table th, table td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #d9f0ff;
+            font-weight: bold;
+        }
+
+        table caption {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        ol li ul {
+            list-style-type: square;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .input-types {
+            margin-top: 20px;
+        }
+
+        .input-types strong {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: underline;
+        }
+
+        .input-types select {
+            margin-top: 5px;
+        }
+
+        .css-review ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .css-review ul ul {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: #fce5cd;
+            border: 2px solid black;
+            margin: 20px 0;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Programming</h1>
+
+    <div class="navbar">
+        <ul>
+            <li><a href="#">Week 1</a></li>
+            <li><a href="#">Week 2</a></li>
+            <li><a href="#">Week 3</a></li>
+            <li><a href="#">Week 4</a></li>
+        </ul>
+    </div>
+
+    <h2>웹에 관하여</h2>
+    <p>
+        ▼ <strong>웹의 기본 목적</strong><br>
+        웹의 기본 목적은 한 컴퓨터에서 만든 문서를 다른 컴퓨터에서 쉽게 볼 수 있게 하는 것이다.
+    </p>
+    <p>
+        ▼ <strong>왜? Why?</strong><br>
+        전 세계의 컴퓨터들을 인터넷으로 연결한 시스템을 WWW, 즉 웹이라고 부른다.
+    </p>
+
+    <table>
+        <caption>Weekly Schedule</caption>
+        <tr>
+            <th>Week</th>
+            <th>Date</th>
+            <th>Contents</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sept. 2</td>
+            <td>
+                <ul style="list-style-type: circle; padding-left: 20px; text-align: left;">
+                    <li>강의 개요</li>
+                    <li>웹의 개념과 구조</li>
+                    <li>Visual Studio Code</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Sept. 9</td>
+            <td>HTML Review</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Sept. 16</td>
+            <td>CSS Review</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Sept. 23</td>
+            <td>JavaScript</td>
+        </tr>
+    </table>
+    <hr>
+
+    <h3>1. Week 1</h3>
+    <ul>
+        <li><a href="#">강의 개요</a></li>
+        <li><a href="#">웹의 개념과 구조</a></li>
+        <li><a href="#">Visual Studio Code</a></li>
+        <ol>
+            <li>설치</li>
+            <li>유용한 plug-ins
+                <ul>
+                    <li>Material Theme</li>
+                    <li>Prettier</li>
+                    <li>indent-rainbow</li>
+                    <li>Auto Rename Tag</li>
+                    <li>HTML CSS Support</li>
+                    <li>Live Server</li>
+                </ul>
+            </li>
+            <li>EMMET</li>
+        </ol>
+    </ul>
+    <hr>
+
+    <h3>2. Week 2: <a href="#">HTML Review</a></h3>
+    <div class="input-types">
+        <strong>Check Box</strong>
+        <input type="checkbox"> HTML5
+        <input type="checkbox"> CSS3
+        <input type="checkbox"> JavaScript
+
+        <strong>Radio Button</strong>
+        <input type="radio" name="lang"> HTML5
+        <input type="radio" name="lang"> CSS3
+        <input type="radio" name="lang"> JavaScript
+
+        <strong>Combo Box</strong>
+        <select>
+            <option>HTML5</option>
+            <option>CSS3</option>
+            <option>JavaScript</option>
+        </select>
+    </div>
+    <hr>
+
+    <h3>3. Week 3: <a href="#">CSS3 Review</a></h3>
+    <div class="css-review">
+        <ul>
+            <li>Selectors: *, tag, #id, .class, 가상클래스, attribute</li>
+            <li>Properties: background-color, background, color, border-color, font-size, text-align, text-decoration, font-family, ...</li>
+            <li>Box Model
+                <ul>
+                    <li>block 요소, inline 요소</li>
+                    <li>margin, padding, border, height, width</li>
+                </ul>
+            </li>
+            <li>display: block, inline, inline-block</li>
+            <li>position: absolute, relative, fixed, float</li>
+        </ul>
+    </div>
+    <div class="box"></div>
+
+    <h3>4. Week 4:</h3>
+    <hr>
+
+    <footer>
+        <p>Copyright © 2024 by Min-Ju All Rights Reserved</p>
+    </footer>
+</body>
+</html>
